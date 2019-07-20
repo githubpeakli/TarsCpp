@@ -180,9 +180,8 @@ template<typename T, typename D> void TC_ThreadQueue<T, D>::push_back(const T& t
 {
     Lock lock(*this);
 
-    notify();
-
     _queue.push_back(t);
+    notify();
     ++_size;
 }
 
@@ -205,10 +204,10 @@ template<typename T, typename D> void TC_ThreadQueue<T, D>::push_front(const T& 
 {
     Lock lock(*this);
 
-    notify();
+    
 
     _queue.push_front(t);
-
+    notify();
     ++_size;
 }
 
